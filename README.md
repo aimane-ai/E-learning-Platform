@@ -204,11 +204,6 @@ This project is licensed under the MIT License. See the `LICENSE` file for more 
 - Owl Carousel for carousels
 - All project contributors
 
-## 📚 Documentation
-
-- **Deployment guide**: See `DEPLOYMENT.md` for detailed instructions
-- **Database schema**: See `database_schema.sql`
-
 ---
 
 **Note**: This project is ready for production after proper database and web server configuration.
