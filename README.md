@@ -70,50 +70,6 @@ Make sure the `image/` and `images/` directories are writable:
 chmod 755 image/
 chmod 755 images/
 ```
-
-### 5. Initial setup
-
-1. Access your site: `http://your-domain.com`
-2. Create an administrator account via the registration interface
-3. Log in and start adding courses
-
-## 🔧 Configuration
-
-### Web server configuration
-
-#### Apache (.htaccess)
-Create a `.htaccess` file at the project root:
-```apache
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php [QSA,L]
-
-# Security
-<Files "connection_db.php">
-    Order Allow,Deny
-    Deny from all
-</Files>
-
-<Files ".env">
-    Order Allow,Deny
-    Deny from all
-</Files>
-```
-
-#### Nginx
-```nginx
-location / {
-    try_files $uri $uri/ /index.php?$query_string;
-}
-
-location ~ \.php$ {
-    fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
-    fastcgi_index index.php;
-    include fastcgi_params;
-}
-```
-
 ## 📁 Project Structure
 
 ```
